@@ -1,3 +1,4 @@
+import { ProductCard } from '#/components/ProductCard'
 import {
   Card,
   CardDescription,
@@ -5,16 +6,31 @@ import {
   CardTitle,
 } from '#/components/ui/card'
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { createServerFn } from '@tanstack/react-start'
 import { ArrowRightIcon } from 'lucide-react'
 
-export const Route = createFileRoute('/')({ component: App })
+const fetchRecommendedProducts = createServerFn({ method: 'GET' }).handler(
+  async () => {
+    const { getRecommendedProducts } = await import('#/data/products')
+    return getRecommendedProducts()
+  },
+)
+
+export const Route = createFileRoute('/')({
+  component: App,
+  loader: async () => {
+    const products = await fetchRecommendedProducts()
+    return { products }
+  },
+})
 
 function App() {
+  const { products } = Route.useLoaderData()
   return (
     <div className="space-y-12 bg-linear-to-b from-slate-50 via-white to-slate-50 p-6">
       <section>
-        <Card className="p-8 shadow-md bg-white/80 dark:bg-slate-800">
-          <p className="text-sm font-semibold uppercase tracking-wide text-blue-600">
+        <Card className="p-8 shadow-md bg-white/80 dark:bg-black/80">
+          <p className="text-sm font-semibold uppercase tracking-wide text-blue-600 ">
             Your favourite e-commerce store
           </p>
           <CardTitle className="text-4xl font-bold leading-tight text-slate-900 dark:text-white max-w-2xl">
@@ -58,9 +74,9 @@ function App() {
             </div>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-6">
-            {/* {products.map((product, index) => (
+            {products.map((product, index) => (
               <ProductCard product={product} key={`product-${index}`} />
-            ))} */}
+            ))}
           </div>
         </Card>
       </section>
