@@ -5,10 +5,5 @@
       "source": "/(.*)",
       "destination": "/api/handler"
     }
-  ],
-  "functions": {
-    "api/handler.js": {
-      "runtime": "nodejs20.x"
-    }
-  }
+  ]
 }
