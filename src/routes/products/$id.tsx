@@ -47,7 +47,14 @@ export const Route = createFileRoute('/products/$id')({
     const recommendedProducts = fetchRecommendedProducts()
     return { product, recommendedProducts }
   },
-  head: async ({ loaderData: data }) => {
+  head: ({ loaderData: data }) => {
+    if (!data) {
+      return {
+        meta: [
+          { title: 'Product Not Found' }
+        ]
+      }
+    }
     const { product } = data as {
       product: ProductSelect
       recommendedProducts: Promise<ProductSelect[]>
