@@ -1,17 +1,17 @@
-import { ProductCard } from '#/components/ProductCard'
+import { ProductCard } from '@/components/ProductCard'
 import {
   Card,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '#/components/ui/card'
+} from '@/components/ui/card'
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { ArrowRightIcon } from 'lucide-react'
 
 const fetchRecommendedProducts = createServerFn({ method: 'GET' }).handler(
   async () => {
-    const { getRecommendedProducts } = await import('#/data/products')
+    const { getRecommendedProducts } = await import('@/data/products')
     return getRecommendedProducts()
   },
 )

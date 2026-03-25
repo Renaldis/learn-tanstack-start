@@ -1,4 +1,4 @@
-import type { ProductSelect } from '#/db/schema'
+import type { ProductSelect } from '@/db/schema'
 import { ProductCard } from './ProductCard'
 import { use } from 'react'
 

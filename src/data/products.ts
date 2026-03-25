@@ -1,6 +1,6 @@
-import { db } from '#/db'
-import type { ProductInsert, ProductSelect } from '#/db/schema'
-import { products } from '#/db/schema'
+import { db } from '@/db'
+import type { ProductInsert, ProductSelect } from '@/db/schema'
+import { products } from '@/db/schema'
 import { eq } from 'drizzle-orm'
 
 export async function getAllProducts() {

@@ -1,4 +1,4 @@
-import type { ProductSelect } from '#/db/schema'
+import type { ProductSelect } from '@/db/schema'
 
 export type MutateCartFnInput =
   | {

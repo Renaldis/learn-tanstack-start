@@ -12,8 +12,8 @@ import {
   CardHeader,
   CardTitle,
 } from './ui/card'
-import type { ProductSelect } from '#/db/schema'
-import { mutateCartFn } from '#/routes/cart'
+import type { ProductSelect } from '@/db/schema'
+import { mutateCartFn } from '@/routes/cart'
 
 const inventoryTone = {
   'in-stock': 'bg-emerald-50 text-emerald-600 border-emerald-100',

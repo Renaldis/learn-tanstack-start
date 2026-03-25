@@ -1,4 +1,4 @@
-import { sampleProducts } from '#/data/products'
+import { sampleProducts } from '@/data/products'
 import dotenv from 'dotenv'
 // Prevent Nitro/Vite from initializing when running as a standalone script
 process.env.NITRO_PRESET = 'node-server'

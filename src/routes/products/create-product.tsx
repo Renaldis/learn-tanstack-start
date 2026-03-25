@@ -6,26 +6,26 @@ import type {
   InventoryValue,
   ProductInsert,
   ProductSelect,
-} from '#/db/schema'
-import { Label } from '#/components/ui/label'
-import { Input } from '#/components/ui/input'
-import { FieldError } from '#/components/ui/field'
+} from '@/db/schema'
+import { Label } from '@/components/ui/label'
+import { Input } from '@/components/ui/input'
+import { FieldError } from '@/components/ui/field'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '#/components/ui/card'
-import { Button } from '#/components/ui/button'
-import { Textarea } from '#/components/ui/textarea'
+} from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Textarea } from '@/components/ui/textarea'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '#/components/ui/select'
+} from '@/components/ui/select'
 import { createServerFn } from '@tanstack/react-start'
 
 export const Route = createFileRoute('/products/create-product')({

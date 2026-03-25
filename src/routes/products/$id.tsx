@@ -1,4 +1,4 @@
-import { Button } from '#/components/ui/button'
+import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -6,9 +6,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '#/components/ui/card'
-import type { ProductSelect } from '#/db/schema'
-import { Skeleton } from '#/components/ui/skeleton'
+} from '@/components/ui/card'
+import type { ProductSelect } from '@/db/schema'
+import { Skeleton } from '@/components/ui/skeleton'
 import { useQueryClient } from '@tanstack/react-query'
 import {
   createFileRoute,
@@ -19,7 +19,7 @@ import {
 import { createServerFn } from '@tanstack/react-start'
 import { ArrowLeftIcon, ShoppingBagIcon, SparklesIcon } from 'lucide-react'
 import { Suspense } from 'react'
-import { RecommendedProducts } from '#/components/RecommendedProducts'
+import { RecommendedProducts } from '@/components/RecommendedProducts'
 
 const fetchProductById = createServerFn({ method: 'POST' })
   .inputValidator((data: { id: string }) => data)
@@ -50,9 +50,7 @@ export const Route = createFileRoute('/products/$id')({
   head: ({ loaderData: data }) => {
     if (!data) {
       return {
-        meta: [
-          { title: 'Product Not Found' }
-        ]
+        meta: [{ title: 'Product Not Found' }],
       }
     }
     const { product } = data as {
