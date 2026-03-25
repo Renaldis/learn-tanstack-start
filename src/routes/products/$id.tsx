@@ -62,7 +62,7 @@ export const Route = createFileRoute('/products/$id')({
           name: 'canonical',
           content:
             process.env.NODE_ENV === 'production'
-              ? `https://stackshop-prod.appwrite.network/products/${product.id}`
+              ? `https://learn-tanstack-start.vercel.app/products/${product.id}`
               : `http://localhost:3000/products/${product.id}`,
         },
         {
